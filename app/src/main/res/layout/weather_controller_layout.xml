@@ -26,10 +26,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/default_location"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/white"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="40sp" />
 
     <TextView
@@ -41,7 +41,7 @@
         android:layout_alignParentRight="true"
         android:text="@string/default_temp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/white"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="90sp" />
 
     <ImageButton
