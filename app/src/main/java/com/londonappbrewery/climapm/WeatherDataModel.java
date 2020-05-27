@@ -9,6 +9,7 @@ public class WeatherDataModel {
     private String mTemperature;
     private String mCity;
     private String mIconName;
+    private String mBackground;
     private int mCondition;
 
     // TODO: Create a WeatherDataModel from a JSON:
@@ -18,6 +19,7 @@ public class WeatherDataModel {
             weatherData.mCity = jsonObject.getString("name");
             weatherData.mCondition = jsonObject.getJSONArray("weather").getJSONObject(0).getInt("id");
             weatherData.mIconName = updateWeatherIcon(weatherData.mCondition);
+            weatherData.mBackground = updateWeatherBg(weatherData.mCondition);
 
             double tempResult = jsonObject.getJSONObject("main").getDouble("temp") - 273.15;
             int roundedValue = (int) Math.rint(tempResult);
@@ -60,7 +62,37 @@ public class WeatherDataModel {
         }
 
         return "dunno";
-//    }
+
+    }
+    private static String updateWeatherBg(int condition) {
+
+        if (condition >= 0 && condition < 300) {
+            return "rainy_bg";
+        } else if (condition >= 300 && condition < 500) {
+            return "rainy_bg";
+        } else if (condition >= 500 && condition < 600) {
+            return "rainy_bg";
+        } else if (condition >= 600 && condition <= 700) {
+            return "snow_bg";
+        } else if (condition >= 701 && condition <= 771) {
+            return "sunny_cloudy_bg";
+        } else if (condition >= 772 && condition < 800) {
+            return "rainy_bg";
+        } else if (condition == 800) {
+            return "sunny_bg";
+        } else if (condition >= 801 && condition <= 804) {
+            return "sunny_cloudy_bg";
+        } else if (condition >= 900 && condition <= 902) {
+            return "rainy_bg";
+        } else if (condition == 903) {
+            return "snow_bg";
+        } else if (condition == 904) {
+            return "sunny_bg";
+        } else if (condition >= 905 && condition <= 1000) {
+            return "rainy_bg";
+        }
+        return "sunny_bg";
+
     }
     // TODO: Create getter methods for temperature, city, and icon name:
 
@@ -75,5 +107,7 @@ public class WeatherDataModel {
 
     public String getIconName() {
         return mIconName;
-    }}
+    }
+
+    public String getBgName() { return mBackground; }}
 

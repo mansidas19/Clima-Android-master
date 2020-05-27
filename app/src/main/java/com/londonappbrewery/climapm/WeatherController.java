@@ -47,6 +47,7 @@ public class WeatherController extends AppCompatActivity {
     // Member Variables:
     TextView mCityLabel;
     ImageView mWeatherImage;
+    ImageView mWeatherBg;
     TextView mTemperatureLabel;
 
     // TODO: Declare a LocationManager and a LocationListener here:
@@ -61,6 +62,7 @@ public class WeatherController extends AppCompatActivity {
         // Linking the elements in the layout to Java code
         mCityLabel = (TextView) findViewById(R.id.locationTV);
         mWeatherImage = (ImageView) findViewById(R.id.weatherSymbolIV);
+        mWeatherBg = (ImageView) findViewById(R.id.weatherbg);
         mTemperatureLabel = (TextView) findViewById(R.id.tempTV);
         ImageButton changeCityButton = (ImageButton) findViewById(R.id.changeCityButton);
 
@@ -202,6 +204,9 @@ public class WeatherController extends AppCompatActivity {
 
         int resourceID = getResources().getIdentifier(weather.getIconName(),"drawable", getPackageName());
         mWeatherImage.setImageResource(resourceID);
+
+        int resource1ID = getResources().getIdentifier(weather.getBgName(),"drawable", getPackageName());
+        mWeatherBg.setImageResource(resource1ID);
     }
 
 
